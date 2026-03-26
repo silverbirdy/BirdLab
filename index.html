@@ -3,131 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BirdLab</title>
-    <meta name="description" content="BirdLab - Software Development Studio">
+    <title>BirdLab — Software Development Studio</title>
+    <meta name="description" content="BirdLab is a software studio that builds products people love. We design, develop, and ship.">
+    <meta property="og:title" content="BirdLab — Software Development Studio">
+    <meta property="og:description" content="We design, develop, and ship products people love.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://birdlab.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --bg: #09090b;
+            --surface: #111113;
+            --border: #1e1e22;
+            --text-primary: #fafafa;
+            --text-secondary: #71717a;
+            --text-tertiary: #3f3f46;
+            --accent: #e4e4e7;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: #0a0a0a;
-            color: #fafafa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 2rem 3rem;
-            max-width: 720px;
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #555;
-            margin-bottom: 2.5rem;
-        }
-
-        h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 900;
-            letter-spacing: -0.045em;
-            line-height: 1.05;
-            margin-bottom: 2rem;
-        }
-
-        .desc {
-            font-size: 1.05rem;
-            color: #666;
-            line-height: 1.7;
-            max-width: 400px;
-            margin-bottom: 3.5rem;
-        }
-
-        .link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: #fafafa;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding-bottom: 2px;
-            border-bottom: 1px solid #333;
-            transition: border-color 0.2s;
-        }
-
-        .link:hover {
-            border-color: #fafafa;
-        }
-
-        .link svg {
-            transition: transform 0.2s;
-        }
-
-        .link:hover svg {
-            transform: translateX(3px);
-        }
-
-        footer {
-            padding: 2rem 3rem;
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #333;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(9, 9, 11, 0.8);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            color: var(--text-primary) !important;
+            font-weight: 500 !important;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #1a1a1e;
+            border-color: #2a2a2e;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.015) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            background: var(--surface);
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(3.2rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.0;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, #fafafa 0%, #71717a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 480px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            background: var(--text-primary);
+            color: var(--bg);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            color: var(--text-primary);
+            border-color: #3f3f46;
+        }
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* What We Do */
+        .section {
+            padding: 7rem 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
             font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-tertiary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.2;
+            margin-bottom: 4rem;
+            max-width: 600px;
+        }
+
+        .capabilities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .capability {
+            padding: 2.5rem;
+            background: var(--bg);
+            transition: background 0.3s;
+        }
+
+        .capability:hover {
+            background: var(--surface);
+        }
+
+        .capability-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .capability h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .capability p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        /* Values */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .value {
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: border-color 0.3s;
+        }
+
+        .value:hover {
+            border-color: #2a2a2e;
+        }
+
+        .value-number {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            margin-bottom: 1.25rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .value h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .value p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 8rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.01) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
+            font-size: 0.8rem;
         }
 
         footer a {
-            color: #444;
+            color: var(--text-tertiary);
             text-decoration: none;
             transition: color 0.15s;
         }
 
         footer a:hover {
-            color: #888;
+            color: var(--text-secondary);
         }
 
         .footer-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
-        @media (max-width: 640px) {
-            main { padding: 2rem 1.5rem; }
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { gap: 1.5rem; }
+            .hero { padding: 7rem 1.5rem 5rem; }
+            .section { padding: 5rem 1.5rem; }
+            .capabilities { grid-template-columns: 1fr; }
+            .values { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+            .cta-section { padding: 5rem 1.5rem; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; align-items: flex-start; }
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
-<main>
-    <p class="tag">Software Studio</p>
-    <h1>BirdLab</h1>
-    <p class="desc">Build fast. Ship clean.</p>
-    <a href="mailto:silverbird.dev@gmail.com" class="link">
+<nav>
+    <span class="logo">BirdLab</span>
+    <div class="nav-links">
+        <a href="#capabilities">Services</a>
+        <a href="#values">About</a>
+        <a href="mailto:silverbird.dev@gmail.com" class="nav-cta">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-badge">
+        <span class="dot"></span>
+        Available for new projects
+    </div>
+    <h1><span class="gradient">Build fast.<br>Ship clean.</span></h1>
+    <p class="hero-sub">We're a software studio that turns ambitious ideas into polished, production-ready products — from concept to launch.</p>
+    <div class="hero-actions">
+        <a href="mailto:silverbird.dev@gmail.com" class="btn-primary">
+            Start a project
+            <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://github.com/silverbirdy" target="_blank" rel="noopener" class="btn-secondary">
+            View our work
+        </a>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Capabilities -->
+<section class="section" id="capabilities">
+    <p class="section-label fade-in">What we do</p>
+    <h2 class="section-title fade-in">End-to-end product development, from strategy to deployment.</h2>
+    <div class="capabilities fade-in">
+        <div class="capability">
+            <div class="capability-icon">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Product Strategy</h3>
+            <p>Market research, user analysis, and product roadmaps that align business goals with user needs.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Design</h3>
+            <p>Clean, intuitive interfaces with systematic design systems built for scale.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Development</h3>
+            <p>Full-stack engineering across iOS, web, and backend — built for performance and reliability.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>iOS & Mobile</h3>
+            <p>Native iOS applications with SwiftUI, optimized for App Store success.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.5"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Infrastructure</h3>
+            <p>Scalable cloud architecture, CI/CD pipelines, and monitoring from day one.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>AI Integration</h3>
+            <p>Embedding intelligence into products with LLMs, ML pipelines, and smart automation.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Values -->
+<section class="section" id="values">
+    <p class="section-label fade-in">How we work</p>
+    <h2 class="section-title fade-in">Principles that drive every project.</h2>
+    <div class="values fade-in">
+        <div class="value">
+            <p class="value-number">01</p>
+            <h3>Ship, then iterate</h3>
+            <p>We believe in getting real products into real hands fast. Perfect is the enemy of shipped.</p>
+        </div>
+        <div class="value">
+            <p class="value-number">02</p>
+            <h3>Quality is non-negotiable</h3>
+            <p>Fast doesn't mean sloppy. Every line of code is written to last. Every pixel is deliberate.</p>
+        </div>
+        <div class="value">
+            <p class="value-number">03</p>
+            <h3>Own the outcome</h3>
+            <p>We don't just write code — we take responsibility for the product's success from start to finish.</p>
+        </div>
+        <div class="value">
+            <p class="value-number">04</p>
+            <h3>Stay lean</h3>
+            <p>Small team, big leverage. We use the best tools and frameworks to move at startup speed.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2 class="fade-in">Let's build something great.</h2>
+    <p class="fade-in">Have a project in mind? We'd love to hear about it.</p>
+    <a href="mailto:silverbird.dev@gmail.com" class="btn-primary fade-in">
         Get in touch
         <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-</main>
+</section>
 
+<!-- Footer -->
 <footer>
-    <span>&copy; 2026 BirdLab</span>
+    <span>&copy; 2026 BirdLab. All rights reserved.</span>
     <div class="footer-links">
         <a href="https://github.com/silverbirdy" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:silverbird.dev@gmail.com">Email</a>
     </div>
 </footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
