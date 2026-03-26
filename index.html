@@ -3,248 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BirdLab — Software Studio</title>
-    <meta name="description" content="BirdLab is a software studio in Seoul. We design and engineer products for companies that move fast.">
+    <title>BirdLab</title>
+    <meta name="description" content="BirdLab is a creative studio that designs, builds, and ships digital products with obsessive attention to detail.">
     <meta property="og:title" content="BirdLab">
-    <meta property="og:description" content="Software studio in Seoul. We design and engineer products for companies that move fast.">
+    <meta property="og:description" content="Creative studio. Seoul.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://birdlab.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --black: #111;
-            --gray-900: #1a1a1a;
-            --gray-600: #666;
-            --gray-400: #999;
-            --gray-200: #e0e0e0;
-            --gray-100: #f5f5f5;
+            --black: #0a0a0a;
+            --dark: #1a1a1a;
+            --gray: #6b6b6b;
+            --light: #b0b0b0;
+            --border: #e2e2e2;
+            --cream: #f8f6f3;
             --white: #fff;
-            --accent: #111;
+            --serif: 'DM Serif Display', Georgia, serif;
+            --sans: 'Inter', -apple-system, sans-serif;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
+            font-family: var(--sans);
+            background: var(--cream);
             color: var(--black);
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
 
         a { color: inherit; text-decoration: none; }
 
-        /* === NAV === */
+        ::selection {
+            background: var(--black);
+            color: var(--cream);
+        }
+
+        /* === HEADER === */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
-            padding: 0 3rem;
-            height: 64px;
+            padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0);
-            transition: border-color 0.3s;
-        }
-
-        header.scrolled {
-            border-bottom-color: var(--gray-200);
+            mix-blend-mode: difference;
         }
 
         .wordmark {
-            font-size: 0.95rem;
-            font-weight: 650;
-            letter-spacing: -0.03em;
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            color: var(--white);
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .header-right a {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            transition: color 0.15s;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            transition: color 0.2s;
+            letter-spacing: 0.01em;
         }
 
         .header-right a:hover {
-            color: var(--black);
-        }
-
-        .header-right .contact-link {
-            color: var(--black);
-            font-weight: 500;
+            color: var(--white);
         }
 
         /* === HERO === */
         .hero {
-            padding: 180px 3rem 120px;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-            font-weight: 500;
-            letter-spacing: -0.035em;
-            line-height: 1.15;
-            color: var(--black);
-        }
-
-        .hero h1 em {
-            font-style: italic;
-            color: var(--gray-400);
-        }
-
-        .hero-body {
-            margin-top: 2.5rem;
-            max-width: 520px;
-        }
-
-        .hero-body p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--gray-600);
-        }
-
-        .hero-body p + p {
-            margin-top: 1rem;
-        }
-
-        /* === DIVIDER === */
-        .divider {
-            height: 1px;
-            background: var(--gray-200);
-            margin: 0 3rem;
-        }
-
-        /* === WORK SECTION === */
-        .work {
-            padding: 100px 3rem;
-            max-width: 1100px;
-        }
-
-        .work-label {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 3rem;
-        }
-
-        .work-list {
+            min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
-            gap: 0;
+            justify-content: flex-end;
+            padding: 0 clamp(1.5rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem);
+            background: var(--black);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
 
-        .work-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--gray-200);
-            align-items: start;
-        }
-
-        .work-item:last-child {
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .work-item h3 {
-            font-size: 1.15rem;
-            font-weight: 550;
-            letter-spacing: -0.02em;
-        }
-
-        .work-item p {
-            font-size: 0.92rem;
-            line-height: 1.65;
-            color: var(--gray-600);
-        }
-
-        /* === ABOUT SECTION === */
-        .about {
-            padding: 100px 3rem 80px;
-            max-width: 700px;
-        }
-
-        .about-label {
+        .hero-intro {
             font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.04em;
             margin-bottom: 2rem;
         }
 
-        .about p {
-            font-size: 1.15rem;
-            line-height: 1.75;
-            color: var(--gray-900);
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 7.5vw, 6.5rem);
             font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            max-width: 1000px;
         }
 
-        .about p + p {
-            margin-top: 1.25rem;
+        .hero h1 i {
+            font-style: italic;
+            opacity: 0.5;
         }
 
-        .about p strong {
-            font-weight: 550;
-            color: var(--black);
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* === CTA === */
-        .cta {
-            padding: 100px 3rem 140px;
-            max-width: 700px;
+        .hero-bottom p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            max-width: 320px;
+            line-height: 1.6;
         }
 
-        .cta h2 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
+        .hero-scroll {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.3);
+            writing-mode: vertical-rl;
+            animation: drift 2.5s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
+        /* === MANIFESTO === */
+        .manifesto {
+            padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 4vw, 3.5rem);
+            max-width: 800px;
+        }
+
+        .manifesto p {
+            font-family: var(--serif);
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.5;
+            color: var(--dark);
+        }
+
+        .manifesto p span {
+            color: var(--light);
+        }
+
+        /* === WORK AREAS === */
+        .areas {
+            padding: 0 clamp(1.5rem, 4vw, 3.5rem) clamp(5rem, 10vw, 9rem);
+        }
+
+        .areas-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .areas-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .areas-header .line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .area {
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .area:nth-child(odd) {
+            border-right: 1px solid var(--border);
+        }
+
+        .area:nth-child(n+3) {
+        }
+
+        .area:last-child,
+        .area:nth-last-child(2):nth-child(odd) {
+            border-bottom: 1px solid var(--border);
+        }
+        .area:nth-last-child(1):nth-child(even) {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .area-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--light);
+            margin-bottom: 1.25rem;
+        }
+
+        .area h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .area p {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--gray);
+            max-width: 380px;
+        }
+
+        /* === BELIEF === */
+        .belief {
+            background: var(--black);
+            color: var(--white);
+            padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 4vw, 3.5rem);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 6rem);
+            align-items: center;
+        }
+
+        .belief-left h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        .belief-left h2 i {
+            font-style: italic;
+            opacity: 0.4;
+        }
+
+        .belief-right {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .belief-right p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.55);
+        }
+
+        .belief-right p strong {
+            color: rgba(255,255,255,0.85);
             font-weight: 500;
-            letter-spacing: -0.025em;
-            line-height: 1.35;
-            color: var(--black);
         }
 
-        .cta-email {
+        /* === CONTACT === */
+        .contact {
+            padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 4vw, 3.5rem);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: end;
+        }
+
+        .contact h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-right p {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--gray);
+        }
+
+        .contact-email {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 4px;
             display: inline-block;
-            margin-top: 2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--black);
-            border-bottom: 1.5px solid var(--black);
-            padding-bottom: 2px;
-            transition: opacity 0.15s;
+            align-self: flex-start;
+            transition: opacity 0.2s;
         }
 
-        .cta-email:hover {
-            opacity: 0.6;
+        .contact-email:hover {
+            opacity: 0.5;
         }
 
         /* === FOOTER === */
         footer {
-            padding: 2rem 3rem;
+            padding: 1.75rem clamp(1.5rem, 4vw, 3.5rem);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid var(--gray-200);
-            color: var(--gray-400);
-            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--light);
         }
 
         .footer-right {
@@ -252,51 +334,36 @@
             gap: 2rem;
         }
 
-        footer a {
-            color: var(--gray-400);
-            transition: color 0.15s;
-        }
-
-        footer a:hover {
-            color: var(--black);
-        }
+        footer a { transition: color 0.15s; }
+        footer a:hover { color: var(--black); }
 
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
-            header { padding: 0 1.5rem; }
-            .hero { padding: 140px 1.5rem 80px; }
-            .divider { margin: 0 1.5rem; }
-            .work { padding: 60px 1.5rem; }
-            .work-item {
-                grid-template-columns: 1fr;
-                gap: 0.75rem;
-                padding: 1.75rem 0;
-            }
-            .about { padding: 60px 1.5rem 50px; }
-            .cta { padding: 60px 1.5rem 100px; }
-            footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
-            .header-right { gap: 1.5rem; }
+            .areas-grid { grid-template-columns: 1fr; }
+            .area:nth-child(odd) { border-right: none; }
+            .area { border-bottom: none; }
+            .area:last-child { border-bottom: 1px solid var(--border); }
+            .belief { grid-template-columns: 1fr; gap: 2.5rem; }
+            .contact { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-bottom { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+            .hero-scroll { display: none; }
+            footer { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .header-right .hide-mobile { display: none; }
+            .header-right a:not(:last-child) { display: none; }
         }
 
-        /* === FADE IN === */
+        /* === FADE === */
         .fi {
             opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(16px);
+            transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
         }
-
-        .fi.v {
-            opacity: 1;
-            transform: none;
-        }
-
-        .fi-d1 { transition-delay: 0.08s; }
-        .fi-d2 { transition-delay: 0.16s; }
+        .fi.v { opacity: 1; transform: none; }
+        .fi-d1 { transition-delay: 0.1s; }
+        .fi-d2 { transition-delay: 0.2s; }
+        .fi-d3 { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
@@ -304,78 +371,91 @@
 <header>
     <a href="/" class="wordmark">BirdLab</a>
     <div class="header-right">
-        <a href="#work" class="hide-mobile">Work</a>
-        <a href="#about" class="hide-mobile">About</a>
-        <a href="mailto:support@birdlab.net" class="contact-link">Contact</a>
+        <a href="#areas">Work</a>
+        <a href="#contact">Contact</a>
     </div>
 </header>
 
+<!-- Hero -->
 <section class="hero">
-    <h1 class="fi">We design and engineer<br>products for companies<br>that move <em>fast</em></h1>
-    <div class="hero-body fi fi-d1">
-        <p>BirdLab is a software studio based in Seoul. We partner with founders and product teams to take ideas from prototype to production — strategy, design, and code, under one roof.</p>
+    <p class="hero-intro fi">Creative studio — Seoul</p>
+    <h1 class="fi fi-d1">We make digital<br>things <i>people<br>actually care about</i></h1>
+    <div class="hero-bottom fi fi-d2">
+        <p>Products, interfaces, and experiences — crafted with the belief that good software deserves the same attention as good architecture.</p>
+        <span class="hero-scroll">Scroll</span>
     </div>
 </section>
 
-<div class="divider"></div>
+<!-- Manifesto -->
+<section class="manifesto">
+    <p class="fi">Most software is forgettable. Built to spec, shipped on time, forgotten by Tuesday. <span>We're interested in the other kind — the kind that makes you pause, look closer, tell someone about it.</span></p>
+</section>
 
-<section class="work" id="work">
-    <p class="work-label fi">What we do</p>
-    <div class="work-list">
-        <div class="work-item fi">
+<!-- Work Areas -->
+<section class="areas" id="areas">
+    <div class="areas-header fi">
+        <h2>What we make</h2>
+        <div class="line"></div>
+    </div>
+    <div class="areas-grid">
+        <div class="area fi">
+            <p class="area-tag">Product</p>
             <h3>Product & Strategy</h3>
-            <p>We work with you to define what to build and why. User research, competitive analysis, roadmap prioritization — before a single line of code is written.</p>
+            <p>We help you figure out what's worth building — through research, prototyping, and honest conversation. Not a 40-page deck nobody reads.</p>
         </div>
-        <div class="work-item fi">
-            <h3>Design</h3>
-            <p>End-to-end product design from wireframes to production-ready UI. We build design systems that scale and interfaces that people actually enjoy using.</p>
+        <div class="area fi fi-d1">
+            <p class="area-tag">Design</p>
+            <h3>Interfaces & Systems</h3>
+            <p>Design that earns trust on first glance. We obsess over spacing, motion, and the invisible details that separate good from great.</p>
         </div>
-        <div class="work-item fi">
-            <h3>Engineering</h3>
-            <p>Full-stack development across web, iOS, and backend infrastructure. We write code that ships on time and holds up in production.</p>
+        <div class="area fi">
+            <p class="area-tag">Engineering</p>
+            <h3>Web, iOS & Backend</h3>
+            <p>We write the code ourselves. React, Swift, Node, infra — whatever the project demands. No outsourcing, no handoff drama.</p>
         </div>
-        <div class="work-item fi">
-            <h3>AI & Automation</h3>
-            <p>We integrate language models, ML pipelines, and intelligent workflows into products — not as a feature checkbox, but as a genuine advantage.</p>
+        <div class="area fi fi-d1">
+            <p class="area-tag">AI</p>
+            <h3>Intelligence Layer</h3>
+            <p>LLMs, automation, and ML — woven into the product where they genuinely help, not where they look good on a pitch deck.</p>
         </div>
     </div>
 </section>
 
-<div class="divider"></div>
-
-<section class="about" id="about">
-    <p class="about-label fi">About</p>
-    <p class="fi">We started BirdLab because we kept seeing the same problem — <strong>talented teams with great ideas, stuck in slow execution cycles</strong>. Big agencies take months. Freelancers lack breadth. Neither moves at startup speed.</p>
-    <p class="fi fi-d1">We're small on purpose. A tight team that covers product, design, and engineering means fewer handoffs, faster decisions, and better outcomes. We treat every project like it's our own.</p>
+<!-- Belief -->
+<section class="belief">
+    <div class="belief-left fi">
+        <h2>Small team,<br>big <i>opinions</i></h2>
+    </div>
+    <div class="belief-right">
+        <p class="fi fi-d1"><strong>We don't do committees.</strong> A tight group that designs, engineers, and ships — with the creative authority to make real decisions, not just fill tickets.</p>
+        <p class="fi fi-d2"><strong>We treat craft as a competitive edge.</strong> The difference between a product people tolerate and one they love is a thousand small choices made well. We make those choices.</p>
+    </div>
 </section>
 
-<div class="divider"></div>
-
-<section class="cta">
-    <h2 class="fi">Have something you want to build?<br>We'd like to hear about it.</h2>
-    <a href="mailto:support@birdlab.net" class="cta-email fi fi-d1">support@birdlab.net</a>
+<!-- Contact -->
+<section class="contact" id="contact">
+    <h2 class="fi">Got something<br>worth making?</h2>
+    <div class="contact-right">
+        <p class="fi fi-d1">We take on a handful of projects at a time.<br>If what you're building is interesting, we'd love to hear about it.</p>
+        <a href="mailto:support@birdlab.net" class="contact-email fi fi-d2">support@birdlab.net</a>
+    </div>
 </section>
 
+<!-- Footer -->
 <footer>
     <span>&copy; 2026 BirdLab</span>
     <div class="footer-right">
-        <span>Seoul, South Korea</span>
+        <span>Seoul, KR</span>
         <a href="mailto:support@birdlab.net">support@birdlab.net</a>
     </div>
 </footer>
 
 <script>
-    const h = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        h.classList.toggle('scrolled', scrollY > 10);
-    }, { passive: true });
-
-    const io = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver(entries => {
         entries.forEach(e => {
             if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); }
         });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.fi').forEach(el => io.observe(el));
 </script>
 
