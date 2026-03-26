@@ -1,98 +1,111 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BirdLab — Software Development Studio</title>
-    <meta name="description" content="BirdLab is a software studio that builds products people love. We design, develop, and ship.">
-    <meta property="og:title" content="BirdLab — Software Development Studio">
-    <meta property="og:description" content="We design, develop, and ship products people love.">
+    <title>BirdLab</title>
+    <meta name="description" content="BirdLab is a software studio that designs, builds, and ships products at startup speed.">
+    <meta property="og:title" content="BirdLab">
+    <meta property="og:description" content="Software studio. Build fast. Ship clean.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://birdlab.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #09090b;
-            --surface: #111113;
-            --border: #1e1e22;
-            --text-primary: #fafafa;
-            --text-secondary: #71717a;
-            --text-tertiary: #3f3f46;
-            --accent: #e4e4e7;
+            --bg: #050505;
+            --surface: #0a0a0a;
+            --surface-2: #111;
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+            --text: #ededed;
+            --text-2: rgba(255,255,255,0.5);
+            --text-3: rgba(255,255,255,0.25);
+            --glow: rgba(120,119,198,0.3);
+            --glow-2: rgba(255,255,255,0.05);
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
-            color: var(--text-primary);
-            min-height: 100vh;
+            color: var(--text);
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
-        /* Nav */
+        /* Grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
+
+        /* === NAV === */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 100;
-            padding: 1.25rem 3rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(9, 9, 11, 0.8);
-            border-bottom: 1px solid var(--border);
+            gap: 2rem;
+            padding: 0.6rem 0.6rem 0.6rem 1.5rem;
+            background: rgba(10,10,10,0.7);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid var(--border);
+            border-radius: 100px;
         }
 
         .logo {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             letter-spacing: -0.03em;
-            color: var(--text-primary);
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
             align-items: center;
+            gap: 0.25rem;
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--text-2);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 400;
-            transition: color 0.2s;
+            padding: 0.45rem 0.9rem;
+            border-radius: 100px;
+            transition: color 0.2s, background 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--text);
+            background: rgba(255,255,255,0.06);
         }
 
         .nav-cta {
-            color: var(--text-primary) !important;
-            font-weight: 500 !important;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 0.5rem 1.25rem;
-            border-radius: 6px;
-            transition: background 0.2s, border-color 0.2s;
+            color: var(--bg) !important;
+            background: var(--text) !important;
+            font-weight: 600 !important;
         }
 
         .nav-cta:hover {
-            background: #1a1a1e;
-            border-color: #2a2a2e;
+            opacity: 0.85;
         }
 
-        /* Hero */
+        /* === HERO === */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -100,76 +113,94 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 8rem 2rem 6rem;
+            padding: 10rem 2rem 8rem;
             position: relative;
         }
 
+        /* Glow orbs */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: 10%;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.015) 0%, transparent 70%);
+            width: 800px;
+            height: 500px;
+            background:
+                radial-gradient(ellipse 50% 60% at 35% 40%, rgba(120,119,198,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 65% 50%, rgba(236,72,153,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 70%);
             pointer-events: none;
+            filter: blur(40px);
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 1rem 0.35rem 0.7rem;
             border: 1px solid var(--border);
             border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            background: var(--surface);
+            font-size: 0.78rem;
+            color: var(--text-2);
+            margin-bottom: 3.5rem;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
         }
 
         .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: #22c55e;
+            width: 7px;
+            height: 7px;
+            background: #10b981;
             border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(16,185,129,0.5);
+            animation: pulse 2.5s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(16,185,129,0.5); }
+            50% { opacity: 0.5; box-shadow: 0 0 4px rgba(16,185,129,0.2); }
         }
 
         .hero h1 {
-            font-size: clamp(3.2rem, 8vw, 6rem);
+            font-size: clamp(3.5rem, 9vw, 7.5rem);
             font-weight: 900;
-            letter-spacing: -0.05em;
-            line-height: 1.0;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
+            letter-spacing: -0.06em;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, #fafafa 0%, #71717a 100%);
+        .hero h1 span {
+            display: block;
+        }
+
+        .hero h1 .line-1 {
+            background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .line-2 {
+            background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-sub {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 480px;
+            font-size: 1.1rem;
+            color: var(--text-2);
+            line-height: 1.75;
+            max-width: 440px;
             margin-bottom: 3rem;
             font-weight: 300;
         }
 
         .hero-actions {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             align-items: center;
         }
 
@@ -177,213 +208,355 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.75rem;
-            background: var(--text-primary);
-            color: var(--bg);
+            padding: 0.8rem 1.8rem;
+            background: #fff;
+            color: #000;
             border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
             font-weight: 600;
+            font-family: inherit;
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
         }
 
         .btn-primary:hover {
-            opacity: 0.85;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 24px rgba(255,255,255,0.15);
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.75rem;
+            padding: 0.8rem 1.8rem;
             background: transparent;
-            color: var(--text-secondary);
+            color: var(--text-2);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
             font-weight: 500;
+            font-family: inherit;
             text-decoration: none;
-            transition: color 0.2s, border-color 0.2s;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
             cursor: pointer;
         }
 
         .btn-secondary:hover {
-            color: var(--text-primary);
-            border-color: #3f3f46;
+            color: var(--text);
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.03);
         }
 
-        /* Divider */
-        .divider {
-            width: 100%;
-            height: 1px;
-            background: var(--border);
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-3);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: float 3s ease-in-out infinite;
         }
 
-        /* What We Do */
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* === MARQUEE === */
+        .marquee-wrap {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee {
+            display: flex;
+            gap: 3rem;
+            animation: scroll 25s linear infinite;
+            width: max-content;
+        }
+
+        .marquee span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-3);
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .marquee .sep {
+            color: rgba(255,255,255,0.08);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* === SECTION === */
         .section {
-            padding: 7rem 3rem;
-            max-width: 1100px;
+            padding: 8rem 3rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            gap: 2rem;
+        }
+
         .section-label {
-            font-size: 0.75rem;
-            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--text-tertiary);
-            margin-bottom: 1.5rem;
+            color: var(--text-3);
+            margin-bottom: 1rem;
         }
 
         .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.035em;
-            line-height: 1.2;
-            margin-bottom: 4rem;
-            max-width: 600px;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            max-width: 550px;
         }
 
-        .capabilities {
+        .section-desc {
+            font-size: 0.9rem;
+            color: var(--text-2);
+            max-width: 300px;
+            line-height: 1.7;
+            font-weight: 300;
+            text-align: right;
+        }
+
+        /* === SERVICES GRID === */
+        .services {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1px;
             background: var(--border);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
+            border: 1px solid var(--border);
         }
 
-        .capability {
+        .service {
             padding: 2.5rem;
-            background: var(--bg);
-            transition: background 0.3s;
-        }
-
-        .capability:hover {
             background: var(--surface);
+            position: relative;
+            transition: background 0.4s;
         }
 
-        .capability-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
+        .service::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
-        .capability h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
+        .service:hover {
+            background: var(--surface-2);
         }
 
-        .capability p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            font-weight: 300;
+        .service:hover::before {
+            opacity: 1;
         }
 
-        /* Values */
-        .values {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+        .service-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-3);
+            margin-bottom: 2rem;
         }
 
-        .value {
-            padding: 2.5rem;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            transition: border-color 0.3s;
-        }
-
-        .value:hover {
-            border-color: #2a2a2e;
-        }
-
-        .value-number {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            margin-bottom: 1.25rem;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .value h3 {
-            font-size: 1.15rem;
+        .service h3 {
+            font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
             letter-spacing: -0.02em;
         }
 
-        .value p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        .service p {
+            font-size: 0.82rem;
+            color: var(--text-2);
             line-height: 1.7;
             font-weight: 300;
         }
 
-        /* CTA */
-        .cta-section {
-            padding: 8rem 3rem;
+        /* === APPROACH === */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .approach-card {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: border-color 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .approach-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .approach-card:hover::before {
+            opacity: 1;
+        }
+
+        .approach-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.06);
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .approach-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        .approach-card p {
+            font-size: 0.8rem;
+            color: var(--text-2);
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        /* === STATS === */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.4) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* === CTA === */
+        .cta {
+            padding: 10rem 2rem;
             text-align: center;
             position: relative;
         }
 
-        .cta-section::before {
+        .cta::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.01) 0%, transparent 70%);
+            width: 600px;
+            height: 400px;
+            background:
+                radial-gradient(ellipse at center, rgba(120,119,198,0.06) 0%, transparent 60%);
             pointer-events: none;
+            filter: blur(60px);
         }
 
-        .cta-section h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 1rem;
+        .cta h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.0;
+            margin-bottom: 1.5rem;
         }
 
-        .cta-section p {
+        .cta h2 span {
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta p {
             font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
+            color: var(--text-2);
+            margin-bottom: 3rem;
             font-weight: 300;
         }
 
-        /* Footer */
+        /* === FOOTER === */
         footer {
-            padding: 2.5rem 3rem;
+            padding: 2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid var(--border);
-            color: var(--text-tertiary);
-            font-size: 0.8rem;
+            color: var(--text-3);
+            font-size: 0.75rem;
         }
 
         footer a {
-            color: var(--text-tertiary);
+            color: var(--text-3);
             text-decoration: none;
             transition: color 0.15s;
         }
 
         footer a:hover {
-            color: var(--text-secondary);
+            color: var(--text-2);
         }
 
         .footer-links {
@@ -391,165 +564,220 @@
             gap: 2rem;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-            .nav-links { gap: 1.5rem; }
-            .hero { padding: 7rem 1.5rem 5rem; }
+        .footer-loc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .services { grid-template-columns: repeat(2, 1fr); }
+            .approach-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-bar { gap: 3rem; flex-wrap: wrap; }
+            .section-header { flex-direction: column; align-items: flex-start; }
+            .section-desc { text-align: left; max-width: 100%; }
+        }
+
+        @media (max-width: 640px) {
+            nav { top: 0.75rem; padding: 0.5rem 0.5rem 0.5rem 1rem; gap: 0.75rem; }
+            .nav-links a { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
+            .hero { padding: 8rem 1.5rem 6rem; }
             .section { padding: 5rem 1.5rem; }
-            .capabilities { grid-template-columns: 1fr; }
-            .values { grid-template-columns: 1fr; }
+            .services { grid-template-columns: 1fr; }
+            .approach-grid { grid-template-columns: 1fr; }
             .hero-actions { flex-direction: column; width: 100%; }
             .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-            .cta-section { padding: 5rem 1.5rem; }
+            .stats-bar { gap: 2.5rem; padding: 3rem 1.5rem; }
+            .stat-value { font-size: 2.2rem; }
+            .cta { padding: 6rem 1.5rem; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; align-items: flex-start; }
         }
 
-        /* Smooth scroll */
-        html { scroll-behavior: smooth; }
-
-        /* Animations */
-        .fade-in {
+        /* === ANIMATIONS === */
+        .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .fade-in.visible {
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
 
+<!-- Nav (pill style like Linear/Arc) -->
 <nav>
     <span class="logo">BirdLab</span>
     <div class="nav-links">
-        <a href="#capabilities">Services</a>
-        <a href="#values">About</a>
+        <a href="#services">Services</a>
+        <a href="#approach">About</a>
         <a href="mailto:silverbird.dev@gmail.com" class="nav-cta">Contact</a>
     </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-badge">
+    <div class="hero-badge reveal">
         <span class="dot"></span>
-        Available for new projects
+        Open for new projects
     </div>
-    <h1><span class="gradient">Build fast.<br>Ship clean.</span></h1>
-    <p class="hero-sub">We're a software studio that turns ambitious ideas into polished, production-ready products — from concept to launch.</p>
-    <div class="hero-actions">
+    <h1 class="reveal reveal-delay-1">
+        <span class="line-1">Build fast.</span>
+        <span class="line-2">Ship clean.</span>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">We're a software studio that turns ideas into products. Strategy, design, engineering — end to end.</p>
+    <div class="hero-actions reveal reveal-delay-3">
         <a href="mailto:silverbird.dev@gmail.com" class="btn-primary">
             Start a project
-            <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#capabilities" class="btn-secondary">
-            Learn more
-        </a>
+        <a href="#services" class="btn-secondary">See what we do</a>
+    </div>
+    <div class="scroll-hint">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
 </section>
 
-<div class="divider"></div>
+<!-- Tech marquee -->
+<div class="marquee-wrap">
+    <div class="marquee">
+        <span>Swift</span><span class="sep">/</span>
+        <span>React</span><span class="sep">/</span>
+        <span>TypeScript</span><span class="sep">/</span>
+        <span>Node.js</span><span class="sep">/</span>
+        <span>Python</span><span class="sep">/</span>
+        <span>PostgreSQL</span><span class="sep">/</span>
+        <span>AWS</span><span class="sep">/</span>
+        <span>Cloudflare</span><span class="sep">/</span>
+        <span>Figma</span><span class="sep">/</span>
+        <span>OpenAI</span><span class="sep">/</span>
+        <span>Swift</span><span class="sep">/</span>
+        <span>React</span><span class="sep">/</span>
+        <span>TypeScript</span><span class="sep">/</span>
+        <span>Node.js</span><span class="sep">/</span>
+        <span>Python</span><span class="sep">/</span>
+        <span>PostgreSQL</span><span class="sep">/</span>
+        <span>AWS</span><span class="sep">/</span>
+        <span>Cloudflare</span><span class="sep">/</span>
+        <span>Figma</span><span class="sep">/</span>
+        <span>OpenAI</span><span class="sep">/</span>
+    </div>
+</div>
 
-<!-- Capabilities -->
-<section class="section" id="capabilities">
-    <p class="section-label fade-in">What we do</p>
-    <h2 class="section-title fade-in">End-to-end product development, from strategy to deployment.</h2>
-    <div class="capabilities fade-in">
-        <div class="capability">
-            <div class="capability-icon">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
+<!-- Services -->
+<section class="section" id="services">
+    <div class="section-header reveal">
+        <div>
+            <p class="section-label">// Services</p>
+            <h2 class="section-title">Everything you need to go from zero to launch.</h2>
+        </div>
+        <p class="section-desc">We handle the full stack so you can focus on your business.</p>
+    </div>
+    <div class="services reveal">
+        <div class="service">
+            <p class="service-num">01</p>
             <h3>Product Strategy</h3>
-            <p>Market research, user analysis, and product roadmaps that align business goals with user needs.</p>
+            <p>Market research, user analysis, and roadmaps that align business goals with real user needs.</p>
         </div>
-        <div class="capability">
-            <div class="capability-icon">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
-            </div>
-            <h3>Design</h3>
-            <p>Clean, intuitive interfaces with systematic design systems built for scale.</p>
+        <div class="service">
+            <p class="service-num">02</p>
+            <h3>UI/UX Design</h3>
+            <p>Interfaces that feel intuitive on day one. Design systems built to scale with your product.</p>
         </div>
-        <div class="capability">
-            <div class="capability-icon">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Development</h3>
-            <p>Full-stack engineering across iOS, web, and backend — built for performance and reliability.</p>
+        <div class="service">
+            <p class="service-num">03</p>
+            <h3>Web Development</h3>
+            <p>Performant web apps with React, Next.js, and modern tooling. SSR, edge functions, the works.</p>
         </div>
-        <div class="capability">
-            <div class="capability-icon">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </div>
+        <div class="service">
+            <p class="service-num">04</p>
             <h3>iOS & Mobile</h3>
-            <p>Native iOS applications with SwiftUI, optimized for App Store success.</p>
+            <p>Native Swift and SwiftUI applications polished for App Store approval and user retention.</p>
         </div>
-        <div class="capability">
-            <div class="capability-icon">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.5"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>
-            </div>
-            <h3>Infrastructure</h3>
-            <p>Scalable cloud architecture, CI/CD pipelines, and monitoring from day one.</p>
+        <div class="service">
+            <p class="service-num">05</p>
+            <h3>Backend & Infra</h3>
+            <p>APIs, databases, cloud architecture. Built for reliability with CI/CD and monitoring from day one.</p>
         </div>
-        <div class="capability">
-            <div class="capability-icon">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
+        <div class="service">
+            <p class="service-num">06</p>
             <h3>AI Integration</h3>
-            <p>Embedding intelligence into products with LLMs, ML pipelines, and smart automation.</p>
+            <p>LLMs, ML pipelines, and intelligent automation embedded directly into your product experience.</p>
         </div>
     </div>
 </section>
 
-<div class="divider"></div>
+<!-- Stats -->
+<div class="stats-bar">
+    <div class="stat reveal">
+        <div class="stat-value">10+</div>
+        <div class="stat-label">Projects shipped</div>
+    </div>
+    <div class="stat reveal reveal-delay-1">
+        <div class="stat-value">3x</div>
+        <div class="stat-label">Faster than average</div>
+    </div>
+    <div class="stat reveal reveal-delay-2">
+        <div class="stat-value">24h</div>
+        <div class="stat-label">Response time</div>
+    </div>
+</div>
 
-<!-- Values -->
-<section class="section" id="values">
-    <p class="section-label fade-in">How we work</p>
-    <h2 class="section-title fade-in">Principles that drive every project.</h2>
-    <div class="values fade-in">
-        <div class="value">
-            <p class="value-number">01</p>
+<!-- Approach -->
+<section class="section" id="approach">
+    <div class="section-header reveal">
+        <div>
+            <p class="section-label">// Approach</p>
+            <h2 class="section-title">How we build.</h2>
+        </div>
+    </div>
+    <div class="approach-grid">
+        <div class="approach-card reveal">
+            <div class="approach-num">01</div>
             <h3>Ship, then iterate</h3>
-            <p>We believe in getting real products into real hands fast. Perfect is the enemy of shipped.</p>
+            <p>Real products in real hands, fast. We optimize for learning speed over perfection.</p>
         </div>
-        <div class="value">
-            <p class="value-number">02</p>
-            <h3>Quality is non-negotiable</h3>
-            <p>Fast doesn't mean sloppy. Every line of code is written to last. Every pixel is deliberate.</p>
+        <div class="approach-card reveal reveal-delay-1">
+            <div class="approach-num">02</div>
+            <h3>Obsess over craft</h3>
+            <p>Fast doesn't mean sloppy. Every component, every animation, every edge case — deliberate.</p>
         </div>
-        <div class="value">
-            <p class="value-number">03</p>
+        <div class="approach-card reveal reveal-delay-2">
+            <div class="approach-num">03</div>
             <h3>Own the outcome</h3>
-            <p>We don't just write code — we take responsibility for the product's success from start to finish.</p>
+            <p>We don't just write code. We take responsibility for the product's success, end to end.</p>
         </div>
-        <div class="value">
-            <p class="value-number">04</p>
+        <div class="approach-card reveal reveal-delay-3">
+            <div class="approach-num">04</div>
             <h3>Stay lean</h3>
-            <p>Small team, big leverage. We use the best tools and frameworks to move at startup speed.</p>
+            <p>Small team, big leverage. Best tools, best frameworks, startup speed.</p>
         </div>
     </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- CTA -->
-<section class="cta-section">
-    <h2 class="fade-in">Let's build something great.</h2>
-    <p class="fade-in">Have a project in mind? We'd love to hear about it.</p>
-    <a href="mailto:silverbird.dev@gmail.com" class="btn-primary fade-in">
+<section class="cta">
+    <h2 class="reveal"><span>Let's build<br>something great.</span></h2>
+    <p class="reveal reveal-delay-1">Got an idea? Let's talk.</p>
+    <a href="mailto:silverbird.dev@gmail.com" class="btn-primary reveal reveal-delay-2">
         Get in touch
-        <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
 </section>
 
 <!-- Footer -->
 <footer>
-    <span>&copy; 2026 BirdLab. All rights reserved.</span>
+    <span>&copy; 2026 BirdLab</span>
+    <span class="footer-loc">Seoul, KR</span>
     <div class="footer-links">
-        <a href="mailto:silverbird.dev@gmail.com">Email</a>
+        <a href="mailto:silverbird.dev@gmail.com">silverbird.dev@gmail.com</a>
     </div>
 </footer>
 
@@ -558,11 +786,20 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Nav background on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        nav.style.background = window.scrollY > 50
+            ? 'rgba(5,5,5,0.85)'
+            : 'rgba(10,10,10,0.7)';
+    }, { passive: true });
 </script>
 
 </body>
