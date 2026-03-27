@@ -141,7 +141,7 @@
             z-index: 0;
         }
 
-        .hero-content, .hero-top-right {
+        .hero-content {
             position: relative;
             z-index: 1;
         }
@@ -150,75 +150,47 @@
         .hero {
             min-height: 100vh;
             min-height: 100svh;
-            display: grid;
-            grid-template-columns: 1fr;
-            align-content: end;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 80px clamp(1.5rem, 5vw, 4rem) clamp(3rem, 5vw, 4.5rem);
             position: relative;
             overflow: hidden;
         }
 
-        .hero-top-right {
-            position: absolute;
-            top: 100px;
-            right: clamp(1.5rem, 5vw, 4rem);
-            text-align: right;
+        .hero-content {
+            max-width: 640px;
         }
 
-        .hero-location {
+        .hero-label {
             font-size: 0.7rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.14em;
             color: var(--text-muted);
-            margin-bottom: 0.4rem;
-        }
-
-        .hero-year {
-            font-family: var(--heading);
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-muted);
-        }
-
-        .hero-content {
-            max-width: 100%;
+            margin-bottom: 1.75rem;
         }
 
         .hero h1 {
             font-family: var(--heading);
-            font-size: clamp(2.8rem, 7.5vw, 6.5rem);
-            font-weight: 800;
-            line-height: 0.95;
-            letter-spacing: -0.045em;
-            text-transform: uppercase;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
         }
 
-        .hero h1 .outline {
-            -webkit-text-stroke: 1.5px var(--text);
-            -webkit-text-fill-color: transparent;
+        .hero h1 .dim {
+            color: var(--text-muted);
+            font-weight: 400;
         }
 
-        .hero h1 .indent {
-            display: block;
-            padding-left: clamp(2rem, 12vw, 14rem);
-        }
-
-        .hero-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: clamp(2rem, 4vw, 3.5rem);
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            gap: 2rem;
-        }
-
-        .hero-bottom p {
-            font-size: 0.88rem;
+        .hero-sub {
+            font-size: 0.92rem;
             color: var(--text-dim);
-            max-width: 380px;
-            line-height: 1.65;
+            margin-top: 1.25rem;
+            line-height: 1.7;
             font-weight: 300;
         }
 
@@ -226,6 +198,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            margin-top: 2rem;
             padding: 0.75rem 1.6rem;
             background: var(--text);
             color: var(--bg);
@@ -236,17 +209,9 @@
             border: none;
             cursor: none;
             transition: opacity 0.2s;
-            white-space: nowrap;
-            flex-shrink: 0;
         }
 
         .hero-cta:hover { opacity: 0.85; }
-
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.2; }
-        }
 
         .btn-primary {
             display: inline-flex;
@@ -639,10 +604,7 @@
             .cap-header p { text-align: left; }
             .project-item { grid-template-columns: 1fr auto; }
             .project-type { display: none; }
-            .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
-            .hero h1 .indent { padding-left: 1rem; }
-            .hero-bottom { flex-direction: column; align-items: flex-start; }
-            .hero-top-right { display: none; }
+            .hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
             .nav-links a:not(.nav-cta) { display: none; }
             footer { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
         }
@@ -679,20 +641,13 @@
 <!-- Hero -->
 <section class="hero">
     <canvas id="hero-canvas"></canvas>
-    <div class="hero-top-right fi">
-        <p class="hero-location">Seoul, KR</p>
-        <p class="hero-year">&copy; 2026</p>
-    </div>
 
     <div class="hero-content">
-        <h1 class="fi">We don't<br><span class="indent"><span class="outline">make</span> boring</span><br>software</h1>
-
-        <div class="hero-bottom fi fi-d1">
-            <p>Design, code, and AI — colliding under one roof to ship products people actually remember. Not another agency. A creative studio.</p>
-            <a href="#contact" class="hero-cta">Work with us &rarr;</a>
-        </div>
+        <p class="hero-label fi">Creative Studio &mdash; Seoul</p>
+        <h1 class="fi fi-d1">We design, build, and ship <span class="dim">what's next</span></h1>
+        <p class="hero-sub fi fi-d2">Design, engineering, and AI under one roof.</p>
+        <a href="#contact" class="hero-cta fi fi-d3">Get in touch &rarr;</a>
     </div>
-
 </section>
 
 <!-- Marquee -->
