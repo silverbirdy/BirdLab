@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gacha! 選秀 — 隱私權政策</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.7; color: #222; }
+  h1 { border-bottom: 2px solid #2A1B5C; padding-bottom: 8px; color: #2A1B5C; }
+  h2 { margin-top: 32px; color: #2A1B5C; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+  ul { padding-left: 24px; }
+  .meta { color: #666; font-size: 0.9em; }
+  a { color: #7C3AED; }
+</style>
+</head>
+<body>
+
+<h1>Gacha! 選秀 — 隱私權政策</h1>
+
+<p class="meta">
+<strong>應用程式名稱:</strong> Gacha! 選秀（偶像卡牌 Live）<br>
+<strong>套件名稱:</strong> <code>net.birdlab.gachaaudition</code><br>
+<strong>生效日期:</strong> 2026 年 5 月 28 日<br>
+<strong>最後更新:</strong> 2026 年 5 月 28 日
+</p>
+
+<p>Gacha! 選秀（下稱「本應用」）重視使用者的隱私，並依相關法令保護使用者權益。本政策說明本應用收集哪些資訊以及如何使用。</p>
+
+<h2>1. 我們收集的資訊</h2>
+
+<p>本應用<strong>不收集任何個人識別資訊</strong>（如姓名、電子郵件、電話、地址等）。</p>
+
+<p>但為了顯示廣告，Google AdMob SDK 可能會收集以下資訊:</p>
+<ul>
+  <li><strong>廣告 ID (AAID)</strong> — Google 提供之可重設廣告識別碼，用於投放個人化廣告。</li>
+  <li><strong>裝置識別資訊</strong> — 裝置型號、作業系統版本、語言設定。</li>
+  <li><strong>概略位置</strong> — 由 IP 位址推算，用於廣告地區化。</li>
+</ul>
+
+<p>上述資訊由 Google AdMob 收集與處理，並不會傳送至本應用開發者的伺服器。</p>
+
+<h2>2. AI 歌詞生成時傳送的資訊</h2>
+
+<p>使用「作曲」功能時,以下非識別性輸入會經由本應用開發者運營的 Cloudflare Worker（代理）傳送至 Google Gemini API,用於生成歌詞:</p>
+<ul>
+  <li><strong>所選曲風</strong>（例如 cute、cool、ballad 等）</li>
+  <li><strong>編成卡牌的遊戲內暱稱</strong>（應用內提供的虛構偶像名稱）</li>
+  <li><strong>品質分數（整數）</strong></li>
+</ul>
+
+<p>上述內容不包含任何個人識別資訊,並在歌詞回應返回後立即丟棄。本應用不會永久儲存或分析。Gemini API 的資料處理遵循 Google 的政策。</p>
+
+<h2>3. 我們不收集的資訊</h2>
+<ul>
+  <li>個人識別資訊（姓名、電子郵件、電話、地址）</li>
+  <li>精確 GPS 位置</li>
+  <li>相片、影片、聯絡人、行事曆</li>
+  <li>語音、健康、財務資訊</li>
+  <li>使用者帳號（本應用無帳號系統）</li>
+</ul>
+
+<h2>4. 儲存於裝置內的資訊</h2>
+
+<p>使用者於應用內產生的下列資訊<strong>僅儲存於裝置內部</strong>,不會傳送至開發者伺服器:</p>
+<ul>
+  <li>抽卡結果與持有卡牌清單</li>
+  <li>編成的小隊（團體）資訊</li>
+  <li>製作的歌曲、歌詞、發行/販售紀錄</li>
+  <li>Live 分數、粉絲數、排行進度</li>
+  <li>遊戲內貨幣餘額（金幣、票券等）</li>
+  <li>設定（語言、音效等）</li>
+</ul>
+
+<p>當使用者刪除應用程式或使用應用內重置功能時,上述資料會被永久刪除。</p>
+
+<h2>5. 收集目的</h2>
+<ul>
+  <li>透過 Google AdMob 進行廣告收益</li>
+  <li>提供 AI 歌詞生成功能（呼叫 Gemini API）</li>
+  <li>應用穩定性與效能改善（Google Play 內建診斷）</li>
+</ul>
+
+<h2>6. 第三方服務</h2>
+
+<p>本應用不會將收集到的資訊出售給第三方。但為提供廣告與 AI 功能,使用下列第三方服務:</p>
+
+<ul>
+  <li><strong>Google AdMob</strong> — 廣告投放與廣告 ID 處理<br>
+  隱私權政策: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+  <li><strong>Google Gemini API</strong> — AI 歌詞生成（傳送非識別輸入值）<br>
+  隱私權政策: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+  <li><strong>Cloudflare Workers</strong> — Gemini API 呼叫之代理（請求轉送）<br>
+  隱私權政策: <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a></li>
+</ul>
+
+<h2>7. 保存期間</h2>
+<ul>
+  <li>裝置內資料: 直到使用者自行刪除</li>
+  <li>廣告 ID: 依 Google AdMob 政策</li>
+  <li>AI 歌詞生成請求: 回應返回後立即丟棄（不儲存）</li>
+</ul>
+
+<h2>8. 使用者權利</h2>
+
+<ul>
+  <li><strong>刪除資料</strong>: 使用應用內重置功能清除所有進度</li>
+  <li><strong>重設廣告 ID</strong>: 可隨時於 Android 裝置的<strong>設定 &gt; Google &gt; 廣告</strong>重設</li>
+  <li><strong>停用個人化廣告</strong>: 可於相同設定路徑停用</li>
+  <li><strong>刪除應用</strong>: 從裝置移除應用程式即永久刪除所有本機資料</li>
+</ul>
+
+<h2>9. 兒童隱私保護</h2>
+
+<p>本應用適用於 13 歲以上之使用者,並不會刻意收集 13 歲以下兒童之個人資訊。如發現已收集 13 歲以下兒童之資料,將立即刪除。</p>
+
+<h2>10. 安全措施</h2>
+
+<ul>
+  <li>所有網路通訊以 HTTPS (TLS) 加密</li>
+  <li>AI 歌詞生成代理以共享密鑰驗證用戶端,防止未授權呼叫</li>
+  <li>裝置內資料僅可於 Android 應用沙箱中存取</li>
+  <li>不會將使用者資料永久儲存於開發者伺服器</li>
+</ul>
+
+<h2>11. 政策變更</h2>
+
+<p>如本政策有變更,將於應用內通知或更新本頁面說明。修訂後政策自本頁公告之日起生效。</p>
+
+<h2>12. 聯絡方式</h2>
+
+<ul>
+  <li><strong>Email:</strong> support@birdlab.net</li>
+</ul>
+
+<hr>
+<p class="meta">本政策亦提供 <a href="ko.html">한국어</a> · <a href="en.html">English</a> · <a href="ja.html">日本語</a> 版本。</p>
+
+</body>
+</html>

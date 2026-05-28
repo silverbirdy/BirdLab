@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gacha! オーディション — プライバシーポリシー</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.7; color: #222; }
+  h1 { border-bottom: 2px solid #2A1B5C; padding-bottom: 8px; color: #2A1B5C; }
+  h2 { margin-top: 32px; color: #2A1B5C; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+  ul { padding-left: 24px; }
+  .meta { color: #666; font-size: 0.9em; }
+  a { color: #7C3AED; }
+</style>
+</head>
+<body>
+
+<h1>Gacha! オーディション — プライバシーポリシー</h1>
+
+<p class="meta">
+<strong>アプリ名:</strong> Gacha! オーディション（アイドルカードライブ）<br>
+<strong>パッケージ名:</strong> <code>net.birdlab.gachaaudition</code><br>
+<strong>施行日:</strong> 2026年5月28日<br>
+<strong>最終更新日:</strong> 2026年5月28日
+</p>
+
+<p>Gacha! オーディション（以下「本アプリ」）は、利用者の個人情報を大切に取り扱い、関連法令を遵守して利用者の権利保護に努めます。本ポリシーは、本アプリが収集する情報とその利用方法を説明します。</p>
+
+<h2>1. 収集する情報</h2>
+
+<p>本アプリは、氏名・メールアドレス・電話番号・住所などの個人を特定できる情報を<strong>一切収集しません</strong>。</p>
+
+<p>ただし、広告表示のため Google AdMob SDK を通じて以下の情報が収集される場合があります:</p>
+<ul>
+  <li><strong>広告 ID (AAID)</strong> — Google が提供するリセット可能な広告識別子。パーソナライズ広告の表示目的。</li>
+  <li><strong>端末識別子</strong> — 端末モデル、OS バージョン、言語設定。</li>
+  <li><strong>おおよその位置情報</strong> — IP アドレスから推定する広告地域化のため。</li>
+</ul>
+
+<p>これらの情報は Google AdMob によって収集・処理され、本アプリ開発者のサーバーには送信されません。</p>
+
+<h2>2. AI 歌詞生成時に送信される情報</h2>
+
+<p>「作曲」機能を使用する際、楽曲生成に必要な以下の非識別情報が、本アプリ開発者が運用する Cloudflare Worker（プロキシ）を経由して Google Gemini API に送信されます:</p>
+<ul>
+  <li><strong>選択したジャンル</strong>（例: cute, cool, ballad など）</li>
+  <li><strong>編成カードのゲーム内ニックネーム</strong>（アプリが提供する架空のアイドル名）</li>
+  <li><strong>クオリティスコア（整数）</strong></li>
+</ul>
+
+<p>これらに個人を特定できる情報は含まれず、歌詞生成の応答返却後ただちに破棄されます。本アプリはこれを永続的に保存したり分析に使用したりしません。Gemini API のデータ取り扱いについては Google のポリシーに従います。</p>
+
+<h2>3. 収集しない情報</h2>
+<ul>
+  <li>氏名・メール・電話番号・住所などの個人識別情報</li>
+  <li>正確な GPS 位置</li>
+  <li>写真、動画、連絡先、カレンダー</li>
+  <li>音声、健康、金融情報</li>
+  <li>ユーザーアカウント情報（本アプリにはアカウント機能がありません）</li>
+</ul>
+
+<h2>4. 端末内に保存される情報</h2>
+
+<p>利用者がアプリ内で生成する以下の情報は<strong>端末内にのみ保存</strong>され、開発者サーバーには送信されません:</p>
+<ul>
+  <li>ガチャ結果および保有カード一覧</li>
+  <li>編成したユニット情報</li>
+  <li>制作した楽曲、歌詞、リリース・販売履歴</li>
+  <li>ライブスコア、ファン数、ランキング進行状況</li>
+  <li>ゲーム内通貨残高（コイン、チケットなど）</li>
+  <li>設定（言語、サウンドなど）</li>
+</ul>
+
+<p>これらは、アプリの削除またはアプリ内のデータリセット機能で永久に削除されます。</p>
+
+<h2>5. 収集目的</h2>
+<ul>
+  <li>Google AdMob による広告収益化</li>
+  <li>AI 歌詞生成機能の提供（Gemini API 呼び出し）</li>
+  <li>アプリの安定性・パフォーマンス改善（Google Play 標準診断機能）</li>
+</ul>
+
+<h2>6. 第三者提供</h2>
+
+<p>本アプリは収集した情報を第三者に販売しません。ただし広告表示および AI 機能提供のため、以下の第三者サービスを利用します:</p>
+
+<ul>
+  <li><strong>Google AdMob</strong> — 広告配信および広告 ID 処理<br>
+  プライバシーポリシー: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+  <li><strong>Google Gemini API</strong> — AI 歌詞生成（非識別入力値の送信）<br>
+  プライバシーポリシー: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+  <li><strong>Cloudflare Workers</strong> — Gemini API 呼び出しのプロキシ（リクエスト中継）<br>
+  プライバシーポリシー: <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a></li>
+</ul>
+
+<h2>7. 保管期間</h2>
+<ul>
+  <li>端末内保存データ: 利用者が削除するまで</li>
+  <li>広告 ID: Google AdMob のポリシーに従う</li>
+  <li>AI 歌詞生成リクエスト: 応答返却後ただちに破棄（保存なし）</li>
+</ul>
+
+<h2>8. 利用者の権利</h2>
+
+<ul>
+  <li><strong>データ削除</strong>: アプリ内のデータリセット機能ですべての進行記録を削除</li>
+  <li><strong>広告 ID のリセット</strong>: Android 端末の<strong>設定 &gt; Google &gt; 広告</strong>からいつでもリセット可能</li>
+  <li><strong>パーソナライズ広告の停止</strong>: 同じ設定から無効化可能</li>
+  <li><strong>アプリの削除</strong>: 端末からアプリを削除するとすべてのローカルデータが完全消去されます</li>
+</ul>
+
+<h2>9. 児童のプライバシー保護</h2>
+
+<p>本アプリは 13 歳以上の利用者を対象としており、13 歳未満の児童から意図的に個人情報を収集することはありません。13 歳未満の児童の情報が収集された事実を確認した場合、ただちに削除します。</p>
+
+<h2>10. セキュリティ</h2>
+
+<ul>
+  <li>すべてのネットワーク通信は HTTPS (TLS) で暗号化</li>
+  <li>AI 歌詞生成プロキシは共有秘密鍵でクライアントを認証し不正呼び出しを防止</li>
+  <li>端末内保存データは Android のアプリサンドボックス内でのみアクセス可能</li>
+  <li>開発者サーバーに利用者データを永続的に保存しない</li>
+</ul>
+
+<h2>11. ポリシー変更</h2>
+
+<p>本ポリシーが変更される場合、アプリ内の通知または本ページの更新でお知らせします。改訂版は本ページに掲載された日から効力を生じます。</p>
+
+<h2>12. お問い合わせ</h2>
+
+<ul>
+  <li><strong>Email:</strong> support@birdlab.net</li>
+</ul>
+
+<hr>
+<p class="meta">本ポリシーは <a href="ko.html">한국어</a> · <a href="en.html">English</a> · <a href="zh-Hant.html">繁體中文</a> でもご覧いただけます。</p>
+
+</body>
+</html>

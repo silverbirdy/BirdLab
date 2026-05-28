@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gacha! Audition — Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.7; color: #222; }
+  h1 { border-bottom: 2px solid #2A1B5C; padding-bottom: 8px; color: #2A1B5C; }
+  h2 { margin-top: 32px; color: #2A1B5C; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+  ul { padding-left: 24px; }
+  .meta { color: #666; font-size: 0.9em; }
+  a { color: #7C3AED; }
+</style>
+</head>
+<body>
+
+<h1>Gacha! Audition — Privacy Policy</h1>
+
+<p class="meta">
+<strong>App name:</strong> Gacha! Audition (Idol Card Live)<br>
+<strong>Package:</strong> <code>net.birdlab.gachaaudition</code><br>
+<strong>Effective date:</strong> May 28, 2026<br>
+<strong>Last updated:</strong> May 28, 2026
+</p>
+
+<p>Gacha! Audition ("the App") respects your privacy and complies with applicable laws to protect your rights. This Privacy Policy explains what information the App collects and how it is used.</p>
+
+<h2>1. Information We Collect</h2>
+
+<p>The App does <strong>not collect any personally identifiable information</strong> (such as your name, email, phone number, or address).</p>
+
+<p>However, the following information may be collected by the Google AdMob SDK for ad delivery:</p>
+<ul>
+  <li><strong>Advertising ID (AAID / IDFA)</strong> — A user-resettable advertising identifier provided by Google. Used for personalized advertising.</li>
+  <li><strong>Device identifiers</strong> — Device model, OS version, language settings.</li>
+  <li><strong>Approximate location</strong> — Derived from IP address for ad regionalization.</li>
+</ul>
+
+<p>This data is collected and processed by Google AdMob and is not transmitted to the App developer's servers.</p>
+
+<h2>2. Information Sent During AI Lyrics Generation</h2>
+
+<p>When you use the "Compose" feature, the following non-identifying inputs are sent through a Cloudflare Worker (proxy) operated by the App developer to Google's Gemini API in order to generate lyrics:</p>
+<ul>
+  <li><strong>Selected genre</strong> (e.g., cute, cool, ballad)</li>
+  <li><strong>In-game nicknames of cards in the unit</strong> (fictional idol names provided by the App)</li>
+  <li><strong>Quality score (integer)</strong></li>
+</ul>
+
+<p>This data contains no personally identifying information and is discarded immediately after the lyrics response is returned. The App does not permanently store or analyze it. Data handling by the Gemini API is governed by Google's policies.</p>
+
+<h2>3. Information We Do Not Collect</h2>
+<ul>
+  <li>Personally identifying information (name, email, phone, address)</li>
+  <li>Precise GPS location</li>
+  <li>Photos, videos, contacts, calendar</li>
+  <li>Voice, health, or financial data</li>
+  <li>User accounts (the App has no account system)</li>
+</ul>
+
+<h2>4. Data Stored On Your Device</h2>
+
+<p>The following information you create in the App is <strong>stored only on your device</strong> and is not transmitted to the developer's servers:</p>
+<ul>
+  <li>Gacha results and card collection</li>
+  <li>Configured units (groups)</li>
+  <li>Composed songs, lyrics, release / sale history</li>
+  <li>Live scores, fan counts, ranking progress</li>
+  <li>In-game currency balances (coins, tickets, etc.)</li>
+  <li>Settings (language, sound, etc.)</li>
+</ul>
+
+<p>This data is permanently deleted when you uninstall the App or use the in-app reset function.</p>
+
+<h2>5. Purpose of Collection</h2>
+<ul>
+  <li>Ad monetization via Google AdMob</li>
+  <li>Providing the AI lyrics generation feature (Gemini API calls)</li>
+  <li>App stability and performance (Google Play built-in diagnostics)</li>
+</ul>
+
+<h2>6. Third-Party Services</h2>
+
+<p>The App does not sell your information to third parties. It uses the following third-party services for ads and AI features:</p>
+
+<ul>
+  <li><strong>Google AdMob</strong> — Ad serving and Advertising ID handling<br>
+  Privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+  <li><strong>Google Gemini API</strong> — AI lyrics generation (non-identifying inputs)<br>
+  Privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+  <li><strong>Cloudflare Workers</strong> — Proxy for Gemini API calls (request relay)<br>
+  Privacy policy: <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a></li>
+</ul>
+
+<h2>7. Retention Period</h2>
+<ul>
+  <li>On-device data: Until you delete it</li>
+  <li>Advertising ID: Per Google AdMob policy</li>
+  <li>AI lyrics request data: Discarded immediately after response (not stored)</li>
+</ul>
+
+<h2>8. Your Rights</h2>
+
+<ul>
+  <li><strong>Delete data</strong>: Use the in-app reset feature to erase all progress</li>
+  <li><strong>Reset Advertising ID</strong>: Available anytime via Android <strong>Settings &gt; Google &gt; Ads</strong></li>
+  <li><strong>Opt out of personalized ads</strong>: Available in the same Android settings</li>
+  <li><strong>Delete the App</strong>: Removing the App from your device permanently deletes all local data</li>
+</ul>
+
+<h2>9. Children's Privacy</h2>
+
+<p>The App is intended for users aged 13 and older, and does not knowingly collect personal information from children under 13. If we become aware that information from a child under 13 has been collected, we will delete it immediately.</p>
+
+<h2>10. Security</h2>
+
+<ul>
+  <li>All network traffic is encrypted with HTTPS (TLS)</li>
+  <li>The AI lyrics proxy authenticates clients with a shared secret to prevent unauthorized calls</li>
+  <li>On-device data is only accessible within the Android app sandbox</li>
+  <li>No user data is permanently stored on developer servers</li>
+</ul>
+
+<h2>11. Policy Changes</h2>
+
+<p>If this policy changes, we will notify you in-app or by updating this page. The updated policy takes effect on the date posted.</p>
+
+<h2>12. Contact</h2>
+
+<ul>
+  <li><strong>Email:</strong> support@birdlab.net</li>
+</ul>
+
+<hr>
+<p class="meta">This policy is also available in <a href="ko.html">한국어</a> · <a href="ja.html">日本語</a> · <a href="zh-Hant.html">繁體中文</a>.</p>
+
+</body>
+</html>
