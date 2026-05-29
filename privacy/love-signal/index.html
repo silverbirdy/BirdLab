@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>답장온도 — Privacy Policy</title>
+<script>
+  (function () {
+    var lang = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+    var target;
+    if (lang.indexOf("ko") === 0) target = "ko.html";
+    else if (lang.indexOf("ja") === 0) target = "ja.html";
+    else if (lang.indexOf("zh") === 0) target = "zh-Hant.html";
+    else target = "en.html";
+    window.location.replace(target);
+  })();
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px; text-align: center; color: #2b2b2b; }
+  h1 { color: #e0603f; }
+  .links { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+  a { display: inline-block; padding: 14px 24px; background: #ef6b53; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; }
+  a:hover { background: #d8542f; }
+  .fallback { color: #888; font-size: 0.9em; margin-top: 24px; }
+</style>
+</head>
+<body>
+<h1>답장온도</h1>
+<p>개인정보처리방침 / Privacy Policy / プライバシーポリシー / 隱私權政策</p>
+<div class="links">
+  <a href="ko.html">한국어</a>
+  <a href="en.html">English</a>
+  <a href="ja.html">日本語</a>
+  <a href="zh-Hant.html">繁體中文</a>
+</div>
+<p class="fallback">Redirecting based on your browser language…</p>
+</body>
+</html>
