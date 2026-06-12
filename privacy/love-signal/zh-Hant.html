@@ -32,8 +32,8 @@
   <p>本應用程式無需註冊，且不會收集姓名、電子郵件、電話號碼等可直接識別您身分的個人資訊。為產生回覆建議，本應用程式會處理以下資訊：</p>
   <ul>
     <li>您輸入的「收到的訊息」內容，以及回覆設定（關係、語氣、語言）。</li>
-    <li>匿名識別碼：為提供服務，Firebase 匿名驗證會產生隨機匿名 ID（不會與您的真實身分連結）。</li>
-    <li>裝置／應用程式完整性訊號：為防止濫用，Google Play Integrity／Firebase App Check 會處理裝置與應用程式的完整性資訊。</li>
+    <li>匿名識別碼：為提供服務並防止濫用，本應用程式會產生隨機匿名 ID 並儲存在您的裝置上（不會與您的真實身分連結）。</li>
+    <li>裝置／應用程式完整性訊號：為防止濫用，Google Play Integrity 會處理裝置與應用程式的完整性資訊。</li>
   </ul>
   <p>本應用程式不會存取您裝置上的其他個人資料，例如通訊錄、位置、相片或通話紀錄。</p>
 
@@ -45,11 +45,12 @@
   </ul>
 
   <h2>3. 第三方處理及跨境傳輸</h2>
-  <p>為產生回覆，<strong>您輸入的訊息與設定會傳送至 Google 的生成式 AI 服務（Google Gemini、Firebase AI Logic）並由其處理。</strong>本應用程式亦使用 Google Firebase 與 Google Play Integrity 進行匿名驗證與完整性驗證。</p>
+  <p>為產生回覆，<strong>您輸入的訊息與設定會經由 BirdLab 的 Cloudflare Workers API 傳送至 Google 的生成式 AI 服務（Google Gemini）並由其處理。</strong>本應用程式亦使用 Google Play Integrity 進行完整性驗證。</p>
   <ul>
-    <li>接收方／處理者：<strong>Google LLC 及其關係企業</strong></li>
+    <li>接收方／處理者：<strong>Cloudflare, Inc.、Google LLC 及其關係企業</strong></li>
     <li>處理的資料：您輸入的訊息與回覆設定、匿名識別碼、裝置／應用程式完整性訊號</li>
-    <li>處理地點：Google 的全球基礎設施（包含您所在國家／地區以外的國家）</li>
+    <li>處理地點：Cloudflare 與 Google 的全球基礎設施（包含您所在國家／地區以外的國家）</li>
+    <li>Cloudflare 的處理遵循 <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare 隱私權政策</a>。</li>
     <li>Google 的處理遵循 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權政策</a>。</li>
     <li>本應用程式以付費（按量計費）方案使用 Google AI 服務；在此情況下，<strong>您的輸入內容不會用於訓練 Google 的 AI 模型。</strong></li>
   </ul>
@@ -68,12 +69,12 @@
   <p>本應用程式並非以未滿 14 歲兒童為對象，且不會在知情情況下收集兒童的個人資訊。</p>
 
   <h2>7. 安全性</h2>
-  <p>所有通訊皆經加密（HTTPS），並透過 App Check 阻擋異常存取。惟透過網際網路傳輸無法保證絕對安全。</p>
+  <p>所有通訊皆經加密（HTTPS），並透過 Cloudflare Workers API 與 Google Play Integrity 驗證阻擋異常存取。惟透過網際網路傳輸無法保證絕對安全。</p>
 
   <h2>8. 廣告</h2>
   <ul>
-    <li>目前版本不顯示廣告。</li>
-    <li>若日後導入廣告（例如 Google AdMob），將把廣告識別碼等相關資料處理內容反映於本政策並予以告知。</li>
+    <li>目前版本可能會顯示 Google AdMob 廣告。</li>
+    <li>廣告提供過程中，Google 可能會處理廣告識別碼、概略裝置資訊與廣告互動資料。</li>
   </ul>
 
   <h2>9. 本政策之變更</h2>

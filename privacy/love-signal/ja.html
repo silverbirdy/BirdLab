@@ -32,8 +32,8 @@
   <p>本アプリには会員登録がなく、氏名・メールアドレス・電話番号など利用者を直接特定する個人情報は収集しません。返信の提案のために、次の情報を処理します。</p>
   <ul>
     <li>利用者が入力した「受け取ったメッセージ」の内容、および返信設定（関係性、トーン、言語）。</li>
-    <li>匿名識別子：サービスの動作のため、Firebase 匿名認証がランダムな匿名 ID を生成します（実際の身元とは結び付きません）。</li>
-    <li>端末・アプリの整合性シグナル：不正利用を防ぐため、Google Play Integrity / Firebase App Check が端末およびアプリの整合性情報を処理します。</li>
+    <li>匿名識別子：サービスの動作と不正利用防止のため、本アプリがランダムな匿名 ID を生成し、端末内に保存します（実際の身元とは結び付きません）。</li>
+    <li>端末・アプリの整合性シグナル：不正利用を防ぐため、Google Play Integrity が端末およびアプリの整合性情報を処理します。</li>
   </ul>
   <p>本アプリは、連絡先・位置情報・写真・通話履歴など、端末内の他の個人情報にはアクセスしません。</p>
 
@@ -45,11 +45,12 @@
   </ul>
 
   <h2>3. 第三者による処理および国外移転</h2>
-  <p>返信の生成のため、<strong>入力されたメッセージと設定値は、Google の生成 AI サービス（Google Gemini、Firebase AI Logic）へ送信・処理されます。</strong>また、匿名認証と整合性検証のために Google Firebase および Google Play Integrity を利用します。</p>
+  <p>返信の生成のため、<strong>入力されたメッセージと設定値は、BirdLab の Cloudflare Workers API を経由して Google の生成 AI サービス（Google Gemini）へ送信・処理されます。</strong>また、整合性検証のために Google Play Integrity を利用します。</p>
   <ul>
-    <li>提供先／処理者：<strong>Google LLC およびその関連会社</strong></li>
+    <li>提供先／処理者：<strong>Cloudflare, Inc.、Google LLC およびその関連会社</strong></li>
     <li>処理する情報：入力メッセージおよび返信設定値、匿名識別子、端末・アプリの整合性シグナル</li>
-    <li>処理場所：Google のグローバルインフラ（日本国外を含む）</li>
+    <li>処理場所：Cloudflare および Google のグローバルインフラ（日本国外を含む）</li>
+    <li>Cloudflare による処理は <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare プライバシーポリシー</a>に従います。</li>
     <li>Google による処理は <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a>に従います。</li>
     <li>本アプリは有料（従量制）プランで Google AI サービスを利用しており、この場合、<strong>入力データは Google の AI モデルの学習には使用されません。</strong></li>
   </ul>
@@ -68,12 +69,12 @@
   <p>本アプリは14歳未満の子どもを対象としておらず、子どもの個人情報を意図的に収集しません。</p>
 
   <h2>7. セキュリティ</h2>
-  <p>すべての通信は暗号化（HTTPS）され、App Check により異常なアクセスを遮断します。ただし、インターネットを通じた送信について完全な安全性を保証することはできません。</p>
+  <p>すべての通信は暗号化（HTTPS）され、Cloudflare Workers API と Google Play Integrity の検証により異常なアクセスを遮断します。ただし、インターネットを通じた送信について完全な安全性を保証することはできません。</p>
 
   <h2>8. 広告</h2>
   <ul>
-    <li>現在のバージョンは広告を表示しません。</li>
-    <li>今後、広告（例：Google AdMob）を導入する場合は、広告識別子などの関連する情報処理を本ポリシーに反映し、告知します。</li>
+    <li>現在のバージョンでは Google AdMob 広告を表示する場合があります。</li>
+    <li>広告配信の過程で、広告識別子、おおよその端末情報、広告への反応情報が Google により処理される場合があります。</li>
   </ul>
 
   <h2>9. 本ポリシーの変更</h2>

@@ -32,8 +32,8 @@
   <p>The App has no sign-up and does not collect directly identifying personal information such as your name, email, or phone number. To generate reply suggestions, it processes:</p>
   <ul>
     <li>The "received message" text you enter and your reply settings (relationship, tone, language).</li>
-    <li>An anonymous identifier: Firebase Anonymous Authentication creates a random anonymous ID to operate the service (not linked to your real identity).</li>
-    <li>Device/app integrity signals: Google Play Integrity / Firebase App Check process device and app integrity information to prevent abuse.</li>
+    <li>An anonymous identifier: the App creates a random anonymous ID and stores it on your device to operate the service and prevent abuse (not linked to your real identity).</li>
+    <li>Device/app integrity signals: Google Play Integrity processes device and app integrity information to prevent abuse.</li>
   </ul>
   <p>The App does not access other personal data on your device such as contacts, location, photos, or call logs.</p>
 
@@ -45,11 +45,12 @@
   </ul>
 
   <h2>3. Third-Party Processing and International Transfer</h2>
-  <p>To generate replies, <strong>the message you enter and your settings are sent to and processed by Google's generative AI services (Google Gemini, Firebase AI Logic)</strong>. The App also uses Google Firebase and Google Play Integrity for anonymous authentication and integrity verification.</p>
+  <p>To generate replies, <strong>the message you enter and your settings are sent through BirdLab's Cloudflare Workers API to Google's generative AI service (Google Gemini) and processed there</strong>. The App also uses Google Play Integrity for integrity verification.</p>
   <ul>
-    <li>Recipient/processor: <strong>Google LLC and its affiliates</strong></li>
+    <li>Recipient/processor: <strong>Cloudflare, Inc., Google LLC and its affiliates</strong></li>
     <li>Data processed: your input message and reply settings, anonymous identifier, device/app integrity signals</li>
-    <li>Processing location: Google's global infrastructure (including countries outside the Republic of Korea)</li>
+    <li>Processing location: Cloudflare and Google's global infrastructure (including countries outside the Republic of Korea)</li>
+    <li>Cloudflare's processing follows the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>.</li>
     <li>Google's processing follows the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
     <li>The App uses Google AI services on a paid (pay-as-you-go) plan; in this case <strong>your input is not used to train Google's AI models.</strong></li>
   </ul>
@@ -68,12 +69,12 @@
   <p>The App is not directed to children under 14 and does not knowingly collect children's personal information.</p>
 
   <h2>7. Security</h2>
-  <p>All communication is encrypted (HTTPS), and App Check blocks abnormal access. However, no transmission over the internet can be guaranteed to be perfectly secure.</p>
+  <p>All communication is encrypted (HTTPS), and the Cloudflare Workers API plus Google Play Integrity verification help block abnormal access. However, no transmission over the internet can be guaranteed to be perfectly secure.</p>
 
   <h2>8. Advertising</h2>
   <ul>
-    <li>The current version does not serve ads.</li>
-    <li>If advertising (e.g., Google AdMob) is introduced later, related data processing (such as advertising identifiers) will be reflected and disclosed in this policy.</li>
+    <li>The current version may serve Google AdMob ads.</li>
+    <li>During ad delivery, Google may process advertising identifiers, approximate device information, and ad interaction data.</li>
   </ul>
 
   <h2>9. Changes to This Policy</h2>
