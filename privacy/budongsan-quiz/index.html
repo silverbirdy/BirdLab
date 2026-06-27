@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>약관 모음 · 부동산 퀴즈</title>
+  <style>
+    :root { --fg:#1f2937; --muted:#6b7280; --bg:#fff; --border:#e5e7eb; --primary:#2563eb; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg:#e5e7eb; --muted:#9ca3af; --bg:#0f172a; --border:#1f2937; --primary:#60a5fa; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
+      color: var(--fg); background: var(--bg);
+      max-width: 760px; margin: 0 auto; padding: 40px 20px 80px;
+      line-height: 1.7; font-size: 16px; word-break: keep-all;
+    }
+    h1 { font-size: 28px; margin-top: 0; border-bottom: 2px solid var(--border); padding-bottom: 12px; }
+    .meta { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    a { color: var(--primary); }
+    ul { padding: 0; list-style: none; }
+    li { margin: 12px 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: 8px; }
+    li a { display: block; font-weight: 600; }
+    li .desc { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
+    .req { background: color-mix(in srgb, #ef4444 15%, transparent); color: #ef4444; }
+    footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<h1>부동산 퀴즈 약관 모음</h1>
+<p class="meta">부동산 퀴즈 미니앱과 관련된 약관 및 개인정보 처리방침을 확인하실 수 있습니다.</p>
+
+<ul>
+  <li>
+    <a href="./privacy.html">개인정보 처리방침<span class="badge req">필수</span></a>
+    <div class="desc">부동산 퀴즈가 수집·이용·보관하는 개인정보 처리 기준</div>
+  </li>
+  <li>
+    <a href="./terms.html">서비스 이용약관<span class="badge req">필수</span></a>
+    <div class="desc">서비스 이용 조건, 유료상품(광고 제거) 결제·환불·청약철회 기준</div>
+  </li>
+</ul>
+
+<footer>
+  © BirdLab · <a href="mailto:support@birdlab.net">support@birdlab.net</a>
+</footer>
+
+</body>
+</html>
